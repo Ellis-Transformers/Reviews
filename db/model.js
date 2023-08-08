@@ -137,7 +137,7 @@ const newReview = async (obj) => {
   obj.reviewer_name = obj.name;
   obj.reviewer_email = obj.email;
 
-  let newReview = await tables.reviews.create(obj).then((data)=>{
+  let newReview = tables.reviews.create(obj).then((data)=>{
     postPhotos(obj.photos, data.id);
     postChara(obj.characteristics, data.id);
   }).catch((err)=>{
